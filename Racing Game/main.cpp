@@ -1,8 +1,13 @@
 #include <iostream>
+#include<SDL.h>
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
-	cout << "Hello game!" << endl;
+	SDL_Init(SDL_INIT_EVERYTHING);
+	
+	while (!false) {
+
+	}
 	return 0;
 }
