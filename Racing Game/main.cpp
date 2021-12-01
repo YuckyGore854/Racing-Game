@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
 	SDL_Init(SDL_INIT_EVERYTHING);
 	IMG_Init(IMG_INIT_PNG);
 	window Window;
-	car entTest;
+	car entTest(true);
 	char entityString[13] = {"testBlob.png"};
 	entTest.loadSprite(Window.renderer, entityString);
 	bool running = true;
@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
 				keyboard = SDL_GetKeyboardState(NULL);
 			}
 		}
-		entTest.update();
+		entTest.update(keyboard);
 
 		entTest.draw(Window.renderer);
 		mouseButtons = SDL_GetMouseState(&mousex, &mousey);

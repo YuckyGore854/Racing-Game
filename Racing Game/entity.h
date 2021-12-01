@@ -5,9 +5,9 @@
 class entity{
 protected:
 	SDL_FRect entRect{ 20,20,0,0 };
+	SDL_Texture* entText;
 	double entXVel = 0;
 	double entYVel = 0;
-	SDL_Texture* entText;
 public:
 	void update();
 	void draw(SDL_Renderer* renderer);
