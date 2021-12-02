@@ -12,27 +12,9 @@ void car::update() {
 void car::update(const Uint8* keyboard) {
 
 	if (playerControlled) {
-		//calculateVelocity();
-
-		if (keyboard[SDL_SCANCODE_W]) {
-			velocity = -1;
-		}
-		if (keyboard[SDL_SCANCODE_S]) {
-			velocity = 1;
-		}
-
-		if (!keyboard[SDL_SCANCODE_W] && !keyboard[SDL_SCANCODE_S] || keyboard[SDL_SCANCODE_W] && keyboard[SDL_SCANCODE_S]) {
-			velocity = 0;
-		}
-		if (keyboard[SDL_SCANCODE_A]) {
-			angle--;
-		}
-		if (keyboard[SDL_SCANCODE_D]) {
-			angle++;
-		}calculateVelocity();
-		std::cout << angle << std::endl;
+		playerInput(keyboard);		
 	}
-
+	calculateVelocity();
 	if (angle > 360) {
 		angle = 0;
 	}
@@ -53,6 +35,22 @@ void car::calculateVelocity() {
 }
 
 
-void car::playerInput() {
+void car::playerInput(const Uint8* keyboard) {
+if (keyboard[SDL_SCANCODE_W]) {
+			velocity = -10;
+		}
+		if (keyboard[SDL_SCANCODE_S]) {
+			velocity = 10;
+		}
 
+		if (!keyboard[SDL_SCANCODE_W] && !keyboard[SDL_SCANCODE_S] || keyboard[SDL_SCANCODE_W] && keyboard[SDL_SCANCODE_S]) {
+			velocity *= 0.95;
+		}
+		if (keyboard[SDL_SCANCODE_A] && velocity != 0) {
+			angle+=velocity;
+		}
+		if (keyboard[SDL_SCANCODE_D] && velocity != 0) {
+			
+			angle-=velocity;
+		}
 }

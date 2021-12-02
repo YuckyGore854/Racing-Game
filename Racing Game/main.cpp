@@ -4,6 +4,7 @@
 #include"window.h"
 #include"entity.h"
 #include"car.h"
+#include"map.h"
 
 using namespace std;
 
@@ -22,10 +23,10 @@ int main(int argc, char* argv[]) {
 	Uint32 frameStart;//this variable holds the amount of time at the beginning of a frame
 	int frameTime;//this variable holds the actual time of the current frame
 
-
+	map Map;
 	while (running) {
 		frameStart = SDL_GetTicks();
-		SDL_SetRenderDrawColor(Window.renderer, 255, 255, 255, 255);
+		SDL_SetRenderDrawColor(Window.renderer, 0, 0, 0, 255);
 		SDL_RenderClear(Window.renderer);
 		SDL_Event event;
 		const Uint8 *keyboard = SDL_GetKeyboardState(NULL);
@@ -44,7 +45,7 @@ int main(int argc, char* argv[]) {
 			}
 		}
 		entTest.update(keyboard);
-
+		Map.draw(Window.renderer);
 		entTest.draw(Window.renderer);
 		mouseButtons = SDL_GetMouseState(&mousex, &mousey);
 		SDL_RenderPresent(Window.renderer);

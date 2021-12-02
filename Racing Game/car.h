@@ -7,7 +7,7 @@ public:
 	void update(const Uint8* keyboard);
 	void calculateVelocity();
 	void draw(SDL_Renderer* renderer);
-	void playerInput();
+	void playerInput(const Uint8* keyboard);
 	car() { playerControlled = false; }
 	car(bool playerControl) { playerControlled = playerControl; }
 private:

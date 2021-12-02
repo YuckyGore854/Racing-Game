@@ -143,14 +143,14 @@
     <ClCompile Include="car.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="map.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="button.h" />
     <ClInclude Include="car.h" />
     <ClInclude Include="entity.h" />
-    <ClInclude Include="Player.h" />
+    <ClInclude Include="map.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
