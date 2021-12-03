@@ -14,5 +14,6 @@ public:
 	void loadSprite(SDL_Renderer* renderer, char entImage[]);
 	void setXpos(float xPos);
 	void setYpos(float yPos);
+	SDL_FRect* getRect() { return &entRect; }
 };
 

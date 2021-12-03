@@ -24,7 +24,7 @@ void car::update(const Uint8* keyboard) {
 }
 
 void car::draw(SDL_Renderer* renderer) {
-	SDL_RenderCopyExF(renderer, entText, NULL, &entRect, angle-90, NULL, SDL_FLIP_NONE);
+	SDL_RenderCopyExF(renderer, entText, NULL, &entRect, angle - 90, NULL, SDL_FLIP_NONE);
 }
 
 void car::calculateVelocity() {
@@ -36,21 +36,24 @@ void car::calculateVelocity() {
 
 
 void car::playerInput(const Uint8* keyboard) {
-if (keyboard[SDL_SCANCODE_W]) {
-			velocity = -10;
+	
+	if (abs(velocity) < 8) {
+		if (keyboard[SDL_SCANCODE_W]) {
+			velocity += -.10;
 		}
 		if (keyboard[SDL_SCANCODE_S]) {
-			velocity = 10;
+			velocity += .10;
 		}
+	}
+	if (!keyboard[SDL_SCANCODE_W] && !keyboard[SDL_SCANCODE_S] || keyboard[SDL_SCANCODE_W] && keyboard[SDL_SCANCODE_S]) {
+		velocity *= 0.95;
+	}
+	if (keyboard[SDL_SCANCODE_A] && velocity != 0) {
+		angle += velocity / 2;
+	}
+	if (keyboard[SDL_SCANCODE_D] && velocity != 0) {
 
-		if (!keyboard[SDL_SCANCODE_W] && !keyboard[SDL_SCANCODE_S] || keyboard[SDL_SCANCODE_W] && keyboard[SDL_SCANCODE_S]) {
-			velocity *= 0.95;
-		}
-		if (keyboard[SDL_SCANCODE_A] && velocity != 0) {
-			angle+=velocity;
-		}
-		if (keyboard[SDL_SCANCODE_D] && velocity != 0) {
-			
-			angle-=velocity;
-		}
+		angle -= velocity / 2;
+	}
+	
 }

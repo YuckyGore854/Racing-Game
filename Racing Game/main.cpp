@@ -44,6 +44,8 @@ int main(int argc, char* argv[]) {
 				keyboard = SDL_GetKeyboardState(NULL);
 			}
 		}
+		Map.collision(entTest.getRect());
+
 		entTest.update(keyboard);
 		Map.draw(Window.renderer);
 		entTest.draw(Window.renderer);
