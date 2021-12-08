@@ -1,6 +1,8 @@
 #include "entity.h"
 #include<iostream>
-void entity::draw(SDL_Renderer* renderer) {
+void entity::draw(SDL_Renderer* renderer, float xOffset, float yOffset) {
+	entRect.x += xOffset;
+	entRect.y += yOffset;
 	if (entText == NULL) {
 		SDL_RenderDrawRectF(renderer, &entRect);
 	}

@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="button.h" />
+    <ClInclude Include="camera.h" />
     <ClInclude Include="car.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="map.h" />
